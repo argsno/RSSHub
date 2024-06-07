@@ -114,6 +114,7 @@ export function gatherLegacyFromData(entries: any[], filterNested?: string[], us
                 }
                 const legacy = tweet.legacy;
                 if (legacy) {
+                    legacy.full_text = tweet?.note_tweet?.note_tweet_results?.result?.text || legacy.full_text;
                     if (retweet) {
                         legacy.retweeted_status = retweet.legacy;
                     }
